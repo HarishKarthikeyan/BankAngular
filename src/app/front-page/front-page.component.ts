@@ -69,7 +69,4 @@ export class FrontPageComponent {
   //     },
   //     (error) => {
   //       console.log(error);
-  //     }
-  //   );
-  // }
 }
