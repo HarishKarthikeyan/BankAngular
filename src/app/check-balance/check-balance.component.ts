@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtmService } from '../atm.service';
 import { LocalStorageService } from '../local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-balance',
@@ -14,11 +15,14 @@ import { LocalStorageService } from '../local-storage.service';
 export class CheckBalanceComponent {
   constructor(
     private atmService: AtmService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {}
   pin: any;
   cardNumber: any;
   balance: any;
+  showBackButton: boolean = false;
+  showBalance: boolean = false;
 
   verifyPin() {
     this.atmService
@@ -34,6 +38,8 @@ export class CheckBalanceComponent {
               (response) => {
                 console.log('balance:', response);
                 this.balance = response.balance;
+                this.showBackButton = true;
+                this.showBalance = true;
               },
               (error) => {
                 console.log(error);
@@ -45,5 +51,12 @@ export class CheckBalanceComponent {
           console.log(error);
         }
       );
+  }
+  goBack() {
+    if (this.localStorage.getItem('cardNumber')?.substring(0, 4) == '9999') {
+      this.router.navigate(['/mainpage']);
+    } else {
+      this.router.navigate(['/otherbank']);
+    }
   }
 }

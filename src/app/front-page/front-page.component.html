@@ -1,7 +1,7 @@
-<div>
-    <h1>My Bank</h1>
-    <p>Welcome to my Bank</p>
-    <label for="cardNumber">Enter Card Details</label>
-    <input type="text" id="cardNumber" title="CardDetails" name="cardNumber" [(ngModel)]="cardNumber">
-    <button type="button" (click)="checkBank()">Submit</button>
+<div class="box">
+    <div class="container">
+        <label for="cardNumber">Enter Card Details</label>
+        <input type="text" id="cardNumber" title="CardDetails" name="cardNumber" [(ngModel)]="cardNumber"><br><br>
+        <button type="button" (click)="checkBank()" class="submit-button">Submit</button>
+    </div>
 </div>

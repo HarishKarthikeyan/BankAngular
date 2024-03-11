@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtmService } from '../atm.service';
 import { LocalStorageService } from '../local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-withdraw',
@@ -14,7 +15,8 @@ import { LocalStorageService } from '../local-storage.service';
 export class WithdrawComponent {
   constructor(
     private atmService: AtmService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {}
   cardNumber: any;
   pin: any;
@@ -39,6 +41,15 @@ export class WithdrawComponent {
               .subscribe(
                 (response) => {
                   console.log(response);
+                  alert('Withdraw Successful');
+                  if (
+                    this.localStorage.getItem('cardNumber')?.substring(0, 4) ==
+                    '9999'
+                  ) {
+                    this.router.navigate(['/mainpage']);
+                  } else {
+                    this.router.navigate(['/otherbank']);
+                  }
                   if (response == null) {
                     alert('Insufficient Balance');
                   }

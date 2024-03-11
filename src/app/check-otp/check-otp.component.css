@@ -1,0 +1,32 @@
+.box {
+  border: 2px solid #ccc; 
+  padding: 20px; 
+  width: 40%; 
+  margin: 0 auto; 
+}
+.form-container {
+  text-align: center; 
+}
+
+.form-container label {
+  display: block; 
+  margin-bottom: 10px; 
+}
+
+.form-container input[type="number"],
+.form-container button {
+  padding: 8px 16px; 
+  margin-bottom: 10px; 
+}
+
+.form-container button {
+  background-color: #007bff; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+
+.form-container button:hover {
+  background-color: #0056b3; 
+}

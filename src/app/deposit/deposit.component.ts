@@ -3,6 +3,7 @@ import { AtmService } from '../atm.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposit',
@@ -14,7 +15,8 @@ import { LocalStorageService } from '../local-storage.service';
 export class DepositComponent {
   constructor(
     private atmService: AtmService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {}
 
   pin: any;
@@ -40,6 +42,8 @@ export class DepositComponent {
               .subscribe(
                 (response) => {
                   console.log(response);
+                  alert('Deposit Successful');
+                  this.router.navigate(['/mainpage']);
                 },
                 (error) => {
                   console.log(error);

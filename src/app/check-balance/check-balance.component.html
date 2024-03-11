@@ -1,7 +1,9 @@
-<div>
-    <label for="pin">Enter Pin</label>
-    <input type="text" id="pin" name="pin" [(ngModel)]="pin">
-    <button title="VerifyPin" (click)="verifyPin()">Verify Pin</button><br>
-
-    <span>{{balance}}</span>
+<div class="box">
+    <div class="form-container">
+        <label for="pin">Enter Pin</label>
+        <input type="text" id="pin" name="pin" [(ngModel)]="pin">
+        <button title="VerifyPin" (click)="verifyPin()">Verify Pin</button><br>
+        <span *ngIf="showBalance">Your Balance: {{balance}}</span>
+        <button *ngIf="showBackButton" (click)="goBack()">Back</button>
+    </div>
 </div>

@@ -1,7 +1,9 @@
-<div>
-    <label for="withdrawAmount">Withdraw Amount</label>
-    <input type="number" id="withdrawAmount" name="withdrawAmount" [(ngModel)]="withdrawAmount">
-    <label for="pin">Enter Pin</label>
-    <input type="text" id="pin" name="pin" [(ngModel)]="pin">
+<div class = "box">
+<div class="form-container">
+    <label for="withdrawAmount">Withdraw Amount</label><br>
+    <input type="number" id="withdrawAmount" name="withdrawAmount" [(ngModel)]="withdrawAmount"><br>
+    <label for="pin">Enter Pin</label><br>
+    <input type="text" id="pin" name="pin" [(ngModel)]="pin"><br>
     <button (click)="withdraw()">Withdraw</button>
+</div>
 </div>

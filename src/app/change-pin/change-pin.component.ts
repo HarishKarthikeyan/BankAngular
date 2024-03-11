@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtmService } from '../atm.service';
 import { LocalStorageService } from '../local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-pin',
@@ -14,7 +15,8 @@ import { LocalStorageService } from '../local-storage.service';
 export class ChangePinComponent {
   constructor(
     private atmService: AtmService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {}
   cardNumber: any;
   newPin: any;
@@ -25,6 +27,8 @@ export class ChangePinComponent {
       .subscribe(
         (response) => {
           console.log(response);
+          alert('Pin changed Successfully');
+          this.router.navigate(['/mainpage']);
         },
         (error) => {
           console.log(error);
