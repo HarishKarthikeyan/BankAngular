@@ -41,7 +41,13 @@ export class WithdrawComponent {
               .subscribe(
                 (response) => {
                   console.log(response);
-                  alert('Withdraw Successful');
+                  // if (response.balance > 0) {
+                  //   alert('Withdraw Successful');
+                  // }
+                  if (response != null) {
+                    alert('Withdraw Successful');
+                  }
+
                   if (
                     this.localStorage.getItem('cardNumber')?.substring(0, 4) ==
                     '9999'

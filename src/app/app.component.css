@@ -1,3 +1,15 @@
 .heading-container {
   text-align: center;
 }
+
+.heading-container h1 {
+  color: #007bff;
+}
+
+.heading-container h3 {
+  color: #333;
+}
+
+.heading-container hr {
+  border-color: #333;
+}
